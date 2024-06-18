@@ -1,0 +1,45 @@
+body {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.avatar {
+    width: 100%;
+    height: 65vh;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.avatar img {
+    display: block;
+    width: auto;
+    max-width: 90vw;
+    height: 100%;
+    margin: 0 auto;
+}
+@media (min-width: 1024px) {
+    .avatar img {
+        max-width: 50vw;
+    }
+}

@@ -1,0 +1,29 @@
+.rain-container {
+    position: relative;
+    height: 100%; /* Occupy full height of the viewport */
+    background-color: rgba(0, 0, 0, 0.1); /* Background color of the page */
+}
+
+.raindrop {
+    position: absolute;
+    width: 4px; /* Width of each raindrop */
+    height: 10px; /* Height of each raindrop */
+    background-color: blue; /* Blue color for raindrops */
+    bottom: 100%; /* Start raindrops off-screen at the top */
+    animation: fall linear infinite; /* Apply the "fall" animation */
+}
+
+/* Keyframes for the rain animation */
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0; /* Start raindrops invisible */
+    }
+    50% {
+        opacity: 1; /* Halfway through animation, raindrops are fully visible */
+    }
+    100% {
+        transform: translateY(100vh); /* Move raindrops to the bottom of viewport */
+        opacity: 0; /* Fade out raindrops */
+    }
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-2XQVEL0CQQ"></script>
+	<script>
+  		window.dataLayer = window.dataLayer || [];
+  		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date());
+
+		gtag('config', 'G-2XQVEL0CQQ');
+	</script>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Andy Sheridan</title>
+	<meta name="description" content="Web Developer based in Essex">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/weather.css">
+	<script src="js/weather-api.js" defer></script>
+	<script src="js/weather.js" defer></script>
+</head>
+
+<body>
+
+	<div class="rain-container" id="rain-container">
+        <!-- Raindrops will be added here dynamically by JavaScript -->
+    </div>
+
+	<header>
+		<h1>Hello</h1>
+		<p>My name's Andy. I live and work in Southend on Sea, Essex, where it's currently <span id="weather-description"></span>.</p>
+		<p>You can contact me <a href="mailto:a.sheridan@hotmail.com">via email</a>.</p>
+	</header>
+
+	<main id="main-container">
+		<div id="weather-info">
+			<!--
+				<p id="weather-description"></p>
+	        	<p id="temperature"></p>
+	       	-->
+	    </div>
+	</main>
+
+	<footer>
+        <div class="avatar">
+            <img src="assets/avatar-unhappy.svg" alt="I'm feeling okay... just okay">
+        </div>
+    </footer>
+</body>
+
+</html>
