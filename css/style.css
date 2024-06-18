@@ -55,6 +55,11 @@ header {
     z-index: 2;
 }
 
+main {
+    height: 100vh;
+    overflow: hidden;
+}
+
 .avatar img {
     display: block;
     width: auto;
