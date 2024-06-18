@@ -4,7 +4,7 @@ const longitude = 0.7143;
 
 // Function to fetch current weather data
 async function getCurrentWeather() {
-    const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=weather_code`;
+    const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`;
 
     console.log(apiUrl);
 
@@ -24,43 +24,43 @@ async function getCurrentWeather() {
 
 // Mapping of weather codes to weather animations and descriptions
 const weatherMapping = {
-    0: { animationClass: 'clear-sky-animation', description: 'clear sky' },
-    1: { animationClass: 'partly-cloudy-animation', description: 'mainly clear' },
-    2: { animationClass: 'partly-cloudy-animation', description: 'partly cloudy' },
-    3: { animationClass: 'overcast-animation', description: 'overcast' },
-    45: { animationClass: 'fog-animation', description: 'fog' },
-    48: { animationClass: 'fog-animation', description: 'depositing rime fog' },
-    51: { animationClass: 'rain-light-animation', description: 'drizzle' },
-    53: { animationClass: 'rain-moderate-animation', description: 'drizzle' },
-    55: { animationClass: 'rain-heavy-animation', description: 'drizzle' },
-    56: { animationClass: 'rain-light-animation', description: 'freezing drizzle' },
-    57: { animationClass: 'rain-heavy-animation', description: 'freezing drizzle' },
-    61: { animationClass: 'rain-light-animation', description: 'rain' },
-    63: { animationClass: 'rain-moderate-animation', description: 'rain' },
-    65: { animationClass: 'rain-heavy-animation', description: 'rain' },
-    66: { animationClass: 'rain-light-animation', description: 'freezing rain' },
-    67: { animationClass: 'rain-heavy-animation', description: 'freezing rain' },
-    71: { animationClass: 'snow-light-animation', description: 'snow fall' },
-    73: { animationClass: 'snow-moderate-animation', description: 'snow fall' },
-    75: { animationClass: 'snow-heavy-animation', description: 'snow fall' },
-    77: { animationClass: 'snow-animation', description: 'snow grains' },
-    80: { animationClass: 'rain-light-animation', description: 'rain showers' },
-    81: { animationClass: 'rain-moderate-animation', description: 'rain showers' },
-    82: { animationClass: 'rain-heavy-animation', description: 'rain showers' },
-    85: { animationClass: 'snow-light-animation', description: 'snow showers' },
-    86: { animationClass: 'snow-heavy-animation', description: 'snow showers' },
-    95: { animationClass: 'thunderstorm-light-animation', description: 'thunderstorm' },
-    96: { animationClass: 'thunderstorm-heavy-animation', description: 'thunderstorm' },
-    99: { animationClass: 'thunderstorm-heavy-animation', description: 'thunderstorm' },
+    0: { animationClass: 'clear-sky-animation', description: 'clear skies!', avatar: 'avatar-sunny.svg' },
+    1: { animationClass: 'mainly-clear-animation', description: 'mainly clear.', avatar: 'avatar-happy.svg' },
+    2: { animationClass: 'partly-cloudy-animation', description: 'partly cloudy.', avatar: 'avatar-neutral.svg' },
+    3: { animationClass: 'overcast-animation', description: 'overcast.', avatar: 'avatar-neutral.svg' },
+    45: { animationClass: 'fog-animation', description: 'foggy.', avatar: 'avatar-neutral.svg' },
+    48: { animationClass: 'fog-animation', description: 'foggy.', avatar: 'avatar-neutral.svg' },
+    51: { animationClass: 'rain-light-animation', description: 'raining lightly.', avatar: 'avatar-neutral.svg' },
+    53: { animationClass: 'rain-moderate-animation', description: 'raining.', avatar: 'avatar-unhappy.svg' },
+    55: { animationClass: 'rain-heavy-animation', description: 'raining heavily!', avatar: 'avatar-angry.svg' },
+    56: { animationClass: 'rain-light-animation', description: 'cold and raining.', avatar: 'avatar-unhappy.svg' },
+    57: { animationClass: 'rain-heavy-animation', description: 'cold and raining heavily!', avatar: 'avatar-unhappy.svg' },
+    61: { animationClass: 'rain-light-animation', description: 'raining lightly.', avatar: 'avatar-neutral.svg' },
+    63: { animationClass: 'rain-moderate-animation', description: 'raining.', avatar: 'avatar-unhappy.svg' },
+    65: { animationClass: 'rain-heavy-animation', description: 'raining heavily!', avatar: 'avatar-angry.svg' },
+    66: { animationClass: 'rain-light-animation', description: 'freezing and raining lightly.', avatar: 'avatar-unhappy.svg' },
+    67: { animationClass: 'rain-heavy-animation', description: 'freezing and raining heavily!', avatar: 'avatar-angry.svg' },
+    71: { animationClass: 'snow-light-animation', description: 'lightly snowing.', avatar: 'avatar-happy.svg' },
+    73: { animationClass: 'snow-moderate-animation', description: 'snowing.', avatar: 'avatar-vhappy.svg' },
+    75: { animationClass: 'snow-heavy-animation', description: 'a snow day!', avatar: 'avatar-vhappy.svg' },
+    77: { animationClass: 'hail-animation', description: 'hailing.', avatar: 'avatar-neutral.svg' },
+    80: { animationClass: 'rain-light-animation', description: 'raining lightly.', avatar: 'avatar-neutral.svg' },
+    81: { animationClass: 'rain-moderate-animation', description: 'raining.', avatar: 'avatar-unhappy.svg' },
+    82: { animationClass: 'rain-heavy-animation', description: 'raining violently!', avatar: 'avatar-angry.svg' },
+    85: { animationClass: 'snow-light-animation', description: 'snowing lightly.', avatar: 'avatar-happy.svg' },
+    86: { animationClass: 'snow-heavy-animation', description: 'snowing heavily!', avatar: 'avatar-vhappy.svg' },
+    95: { animationClass: 'thunderstorm-light-animation', description: 'a bit stormy.', avatar: 'avatar-neutral.svg' },
+    96: { animationClass: 'thunderstorm-moderate-animation', description: 'stormy.', avatar: 'avatar-unhappy.svg' },
+    99: { animationClass: 'thunderstorm-heavy-animation', description: 'very stormy!', avatar: 'avatar-angry.svg' },
 };
 
 // Example usage
 getCurrentWeather().then(data => {
-    if (data && data.current && data.current.weather_code) {
-        const weatherCode = data.current.weather_code;
-        const weatherInfo = weatherMapping[weatherCode] || { animationClass: 'default-animation', description: 'unknown' };
+    if (data && data.current_weather && data.current_weather.weathercode !== undefined) {
+        const weatherCode = data.current_weather.weathercode;
+        const weatherInfo = weatherMapping[80] || { animationClass: 'default-animation', description: 'unknown', avatar: 'avatar-neutral.svg' };
 
-        console.log(`Weather Code: ${weatherCode}, Animation Class: ${weatherInfo.animationClass}, Description: ${weatherInfo.description}`);
+        console.log(`Weather Code: ${weatherCode}, Animation Class: ${weatherInfo.animationClass}, Description: ${weatherInfo.description}, Avatar: ${weatherInfo.avatar}`);
 
         // Apply animation class and update description in UI
         updateWeatherUI(weatherInfo);
@@ -71,17 +71,21 @@ getCurrentWeather().then(data => {
     console.error('Error getting current weather data:', error);
 });
 
-// Function to update UI with weather animation and description
+// Function to update UI with weather animation, description, and avatar
 function updateWeatherUI(weatherInfo) {
-    const mainContainer = document.getElementById('main-container');
+    const weatherContainer = document.getElementById('weather-container');
     // Remove all existing animation classes
-    mainContainer.className = 'main-container';
+    weatherContainer.className = '';
 
     // Add the new animation class
-    mainContainer.classList.add(weatherInfo.animationClass);
+    weatherContainer.classList.add(weatherInfo.animationClass);
 
     // Update description element
     const weatherDescriptionElement = document.getElementById('weather-description');
-    const location = "Southend on Sea, Essex"; // Your location
     weatherDescriptionElement.textContent = `${weatherInfo.description}`;
+
+    // Update avatar
+    const avatarElement = document.querySelector('.avatar img');
+    avatarElement.src = `assets/${weatherInfo.avatar}`;
+    avatarElement.alt = weatherInfo.description;
 }

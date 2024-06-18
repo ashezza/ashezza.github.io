@@ -23,32 +23,22 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/weather.css">
-	<script src="js/weather-api.js" defer></script>
-	<script src="js/weather.js" defer></script>
+	<script src="js/weather-api.js"></script>
+	<script src="js/weather.js"></script>
 </head>
 
 <body>
 
-	<div class="rain-container" id="rain-container"></div>
-
 	<header>
 		<h1>Hello</h1>
-		<p>My name's Andy. I live and work in Southend on Sea, Essex, where it's currently <span id="weather-description"></span>.</p>
+		<p>My name's Andy. I live and work in Southend-on-Sea, Essex, where it's currently <span id="weather-description"></span></p>
 	</header>
-
-	<main id="main-container">
-		<div id="weather-info">
-			<!--
-				<p id="weather-description"></p>
-	        	<p id="temperature"></p>
-	       	-->
-	    </div>
-	</main>
 
 	<footer>
         <div class="avatar">
             <img src="assets/avatar-happy.svg" alt="I'm feeling okay... just okay">
         </div>
+        <div id="weather-container"></div>
     </footer>
 </body>
 

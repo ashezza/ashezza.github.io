@@ -1,26 +1,67 @@
-.rain-container {
-    position: relative;
-    height: 100%; /* Occupy full height of the viewport */
-    background-color: rgba(0, 0, 0, 0.1); /* Background color of the page */
+:root {
+    --bg-clear-sky: rgb(135, 206, 235);
+    --bg-mainly-clear: rgba(135, 206, 235, 0.8);
+    --bg-storm: rgba(0, 0, 0, 0.3);
+    --bg-overcast: rgba(0, 0, 0, 0.2);
+    --bg-partly-cloudy: rgba(0, 0, 0, 0.1);
+    --bg-snow: rgba(135, 206, 235, 0.5);
 }
 
-.raindrop {
+#weather-container {
+    position: relative;
+    z-index: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#weather-container.clear-sky-animation {
+    background-color: var(--bg-clear-sky);
+}
+#weather-container.mainly-clear-animation {
+    background-color: var(--bg-mainly-clear);
+}
+#weather-container.overcast-animation,
+#weather-container.fog-animation,
+#weather-container.rain-heavy-animation,
+#weather-container.thunderstorm-heavy-animation {
+    background-color: var(--bg-overcast);
+}
+#weather-container.partly-cloudy-animation,
+#weather-container.rain-light-animation,
+#weather-container.rain-moderate-animation {
+    background-color: var(--bg-partly-cloudy);
+}
+#weather-container.snow-animation,
+#weather-container.snow-light-animation,
+#weather-container.snow-moderate-animation,
+#weather-container.snow-heavy-animation {
+    background-color: var(--bg-snow);
+}
+#weather-container.thunderstorm-heavy-animation {
+    background-color: var(--bg-storm);
+}
+
+#weather-container.rain-light-animation .raindrop,
+#weather-container.rain-moderate-animation .raindrop,
+#weather-container.rain-heavy-animation .raindrop {
     position: absolute;
-    width: 4px; /* Width of each raindrop */
-    height: 10px; /* Height of each raindrop */
-    background-color: grey; /* Blue color for raindrops */
+    background-color: grey;
     bottom: 100%; /* Start raindrops off-screen at the top */
-    animation: fall linear infinite; /* Apply the "fall" animation */
+    animation: rainfall linear infinite; /* Apply the "rainfall" animation */
+    pointer-events: none; /* Allow interactions through the rain */
 }
 
 /* Keyframes for the rain animation */
-@keyframes fall {
+@keyframes rainfall {
     0% {
         transform: translateY(-100%);
         opacity: 0; /* Start raindrops invisible */
     }
-    50% {
-        opacity: 1; /* Halfway through animation, raindrops are fully visible */
+    20% {
+        opacity: 1; /* Raindrops are fully visible */
+    }
+    80% {
+        opacity: 0; /* Fade out raindrops */
     }
     100% {
         transform: translateY(100vh); /* Move raindrops to the bottom of viewport */

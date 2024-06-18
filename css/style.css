@@ -21,6 +21,17 @@ body {
 header {
     text-align: center;
     padding: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    z-index: 1;
+}
+
+@media (min-width: 1024px) {
+    header {
+        padding: 20px 0;
+        width: 100%;
+    }
 }
 
 .footer {
@@ -41,6 +52,7 @@ header {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 2;
 }
 
 .avatar img {
