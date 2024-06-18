@@ -8,7 +8,7 @@
     position: absolute;
     width: 4px; /* Width of each raindrop */
     height: 10px; /* Height of each raindrop */
-    background-color: blue; /* Blue color for raindrops */
+    background-color: grey; /* Blue color for raindrops */
     bottom: 100%; /* Start raindrops off-screen at the top */
     animation: fall linear infinite; /* Apply the "fall" animation */
 }

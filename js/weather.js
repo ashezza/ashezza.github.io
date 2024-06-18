@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     const rainContainer = document.getElementById('rain-container');
-    const numberOfRaindrops = 100; // Number of raindrops
+    const numberOfRaindrops = 20; // Number of raindrops
 
     for (let i = 0; i < numberOfRaindrops; i++) {
         const raindrop = document.createElement('div');
