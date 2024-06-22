@@ -1,5 +1,6 @@
 :root {
     --bg-clear-sky: rgb(135, 206, 235);
+    --bg-clear-sky-night: linear-gradient(to bottom, rgba(0, 10, 40, 0.95), rgba(0, 10, 40, 0.8)); /* Gradient from very dark blue to slightly lighter blue */
     --bg-mainly-clear: rgba(135, 206, 235, 0.8);
     --bg-storm: rgba(0, 0, 0, 0.3);
     --bg-overcast: rgba(0, 0, 0, 0.2);
@@ -17,6 +18,9 @@
 
 #weather-container.clear-sky-animation {
     background-color: var(--bg-clear-sky);
+}
+.nighttime #weather-container.clear-sky-animation {
+    background: var(--bg-clear-sky-night);
 }
 #weather-container.mainly-clear-animation {
     background-color: var(--bg-mainly-clear);
@@ -42,6 +46,8 @@
     background-color: var(--bg-storm);
 }
 
+
+/* RAIN */
 #weather-container.rain-light-animation .raindrop,
 #weather-container.rain-moderate-animation .raindrop,
 #weather-container.rain-heavy-animation .raindrop {
@@ -64,5 +70,36 @@
     100% {
         transform: translateY(100vh); /* Move raindrops to the bottom of viewport */
         opacity: 0; /* Fade out raindrops */
+    }
+}
+
+
+/* CLOUDY */
+.cloud {
+    position: absolute;
+    animation: moveClouds linear infinite;
+}
+.cloud-small svg {
+    height: 25vh;
+    width: 100vw;
+}
+.cloud-medium svg {
+    height: 50vh;
+    width: 100vw;
+}
+.cloud-large svg {
+    height: 80vh;
+    width: 100vw;
+}
+.cloud:nth-child(2n) svg {
+    transform: scaleX(-1); /* Flip every second cloud horizontally */
+}
+
+@keyframes moveClouds {
+    from {
+        transform: translateX(-100vw);
+    }
+    to {
+        transform: translateX(100vw);
     }
 }

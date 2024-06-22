@@ -16,22 +16,22 @@ body {
     font-optical-sizing: auto;
     font-weight: var(--font-weight-medium);
     font-style: normal;
+    font-size: 18px;
+    line-height: 1.5em;
+}
+
+body.nighttime {
+    color: #fff;
 }
 
 header {
+    box-sizing: border-box;
     text-align: center;
-    padding: 20px;
-    max-width: 100%;
+    width: 100%;
+    padding: 2.5em 1em;
     margin: 0 auto;
     position: absolute;
     z-index: 1;
-}
-
-@media (min-width: 1024px) {
-    header {
-        padding: 20px 0;
-        width: 100%;
-    }
 }
 
 .footer {
@@ -45,6 +45,11 @@ header {
     box-sizing: border-box;
 }
 
+main {
+    height: 100vh;
+    overflow: hidden;
+}
+
 .avatar {
     width: 100%;
     height: 65vh;
@@ -53,22 +58,18 @@ header {
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
-}
-
-main {
-    height: 100vh;
-    overflow: hidden;
+    overflow: hidden; /* Ensure content doesn't overflow the container */
 }
 
 .avatar img {
     display: block;
-    width: auto;
-    max-width: 90vw;
+    width: 100%;
     height: 100%;
+    max-height: 50vh;
     margin: 0 auto;
-}
-@media (min-width: 1024px) {
-    .avatar img {
-        max-width: 50vw;
-    }
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }

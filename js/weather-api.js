@@ -58,9 +58,16 @@ const weatherMapping = {
 getCurrentWeather().then(data => {
     if (data && data.current_weather && data.current_weather.weathercode !== undefined) {
         const weatherCode = data.current_weather.weathercode;
-        const weatherInfo = weatherMapping[80] || { animationClass: 'default-animation', description: 'unknown', avatar: 'avatar-neutral.svg' };
+        const weatherInfo = weatherMapping[weatherCode] || { animationClass: 'default-animation', description: 'unknown', avatar: 'avatar-neutral.svg' };
 
         console.log(`Weather Code: ${weatherCode}, Animation Class: ${weatherInfo.animationClass}, Description: ${weatherInfo.description}, Avatar: ${weatherInfo.avatar}`);
+
+        // Check if it's nighttime in the UK (adjust as per your timezone considerations)
+        const isNightTime = document.body.classList.contains('nighttime');
+        if (isNightTime) {
+            // Set avatar to neutral if it's nighttime
+            weatherInfo.avatar = 'avatar-vhappy.svg';
+        }
 
         // Apply animation class and update description in UI
         updateWeatherUI(weatherInfo);
